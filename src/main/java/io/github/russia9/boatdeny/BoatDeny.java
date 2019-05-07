@@ -20,9 +20,10 @@ public class BoatDeny {
         if (src instanceof Player) {
             Player player = (Player) src;
             if (player.getVehicle().isPresent() && !player.hasPermission("boatdeny.bypass")) {
-                if (player.getVehicle().get().getType().equals(EntityTypes.RIDEABLE_MINECART) || player.getVehicle().get().getType().equals(EntityTypes.BOAT))
+                if (player.getVehicle().get().getType().equals(EntityTypes.RIDEABLE_MINECART) || player.getVehicle().get().getType().equals(EntityTypes.BOAT)) {
                     player.sendMessage(TextSerializers.FORMATTING_CODE.deserialize("&cНельзя выполнять команды во время езды!"));
-                event.setCancelled(true);
+                    event.setCancelled(true);
+                }
             }
         }
     }
